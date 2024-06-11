@@ -12,14 +12,13 @@ use App\Http\Controllers\BarangMasukController;
 use App\Http\Controllers\BarangKeluarController;
 use App\Http\Controllers\TesController;
 
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/testing', function(){
+return view('welcome');
+})
 
 Route::resource('/products', \App\Http\Controllers\ProductController::class);
 
-Route::resource('/barang', BarangController::class)->middleware('auth');
+Route::resource('/', BarangController::class)->middleware('auth');
 
 Route::get('login', [LoginController::class,'index'])->name('login')->middleware('guest');
 Route::post('login', [LoginController::class,'authenticate']);
